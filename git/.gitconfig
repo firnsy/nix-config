@@ -1,0 +1,16 @@
+[user]
+	name = firnsy
+	email = firnsy@securixlive.com
+[color]
+	branch = auto
+	diff = auto
+	interactive = auto
+	status = auto
+[alias]
+	st = status
+	df = diff
+	br = branch
+	ci = commit
+	co = checkout
+[merge]
+	tool = opendiff
