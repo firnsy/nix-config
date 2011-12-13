@@ -97,7 +97,7 @@ set showmatch
 
 " how many tenths of a second to blink
 set mat=2
-g
+
 " no sound on errors
 set noerrorbells
 set novisualbell
@@ -412,7 +412,6 @@ au FileType python map <buffer> <leader>D ?defg
 "
 " JAVASCRIPT SECTION
 "
-au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
@@ -422,7 +421,7 @@ au FileType javascript imap <c-a> alert();<esc>hi
 au FileType javascript inoremap <buffer> $r returng
 au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
 
-function! JavaScriptFold()g
+function! JavaScriptFold()
     setl foldmethod=syntax
     setl foldlevelstart=1
     syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
