@@ -174,6 +174,17 @@ set list   listchars=tab:»·,trail:·
 set listchars=tab:»·,trail:·,extends:»
 
 
+"
+" COMMENTING/UNCOMMENTING CODE
+"
+
+autocmd FileType c,cpp,javascript let b:comment_leader = '// '
+autocmd FileType sh,perl,python   let b:comment_leader = '# '
+autocmd FileType conf,fstab       let b:comment_leader = '# '
+autocmd FileType vim              let b:comment_leader = '" '
+noremap <silent> <leader>c :<C-B>silent <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+noremap <silent> <leader>u :<C-B>silent <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+
 
 "
 " VISUAL MODE
