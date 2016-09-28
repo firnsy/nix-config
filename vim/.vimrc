@@ -23,6 +23,14 @@
 " GENERAL
 "
 
+set t_Co=256
+
+
+" color scheme
+
+let g:rehash256 = 1
+colorscheme molokai
+
 " sets how many lines of history VIM has to remember
 set history=700
 
@@ -129,7 +137,7 @@ set ffs=unix,dos,mac
 " FILES, BACKUPS and UNDO
 "
 
-" turn backup off, since most stuff is in SVN, git anyway...
+" turn backup off, since most stuff is in git anyway...
 set nobackup
 set nowb
 set noswapfile
@@ -268,12 +276,20 @@ func! CurrentFileDir(cmd)
   return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
 
+"
+" SEARCH
+"
+
+cmap w!! w !sudo tee > /dev/null %
 
 "
 " MOVING AROUND, TABS and BUFFERS
 "
 
-map <silent> <leader><cr> :noh<cr>
+nnoremap <tab> %
+vnoremap <tab> %
+
+map <silent> <leader><space> :noh<cr>
 
 " smart way to move btw. windows
 map <C-j> <C-W>j
@@ -419,29 +435,6 @@ au FileType python map <buffer> <leader>2 /defg
 au FileType python map <buffer> <leader>C ?classg
 au FileType python map <buffer> <leader>D ?defg
 
-
-"
-" JAVASCRIPT SECTION
-"
-au FileType javascript setl fen
-au FileType javascript setl nocindent
-
-au FileType javascript imap <c-t> AJS.log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r returng
-au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-function! JavaScriptFold()
-    setl foldmethod=syntax
-    setl foldlevelstart=1
-    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-
-    function! FoldText()
-        return substitute(getline(v:foldstart), '{.*', '{...}', '')
-    endfunction
-    setl foldtext=FoldText()
-endfunction
 
 
 "
