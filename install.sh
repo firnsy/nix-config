@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # ensure config directory exists
-[ -d "~/.config"] || mkdir ~/.config
+[ -d ~/.config ] || mkdir ~/.config
 
 
 # TODO: ensure our packages exist
