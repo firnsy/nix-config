@@ -5,6 +5,13 @@
         "function": "powerline.segments.shell.mode"
       },
       {
+        "function": "powerline.segments.common.time.date",
+        "args": {
+          "format": "%H:%M",
+          "istime": true
+        }
+      },
+      {
         "function": "powerline.segments.common.net.hostname",
         "args": {
           "only_if_ssh": true,
